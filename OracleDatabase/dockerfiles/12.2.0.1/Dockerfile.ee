@@ -48,6 +48,12 @@ ENV INSTALL_DIR=$ORACLE_BASE/install \
     PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch/:/usr/sbin:$PATH \
     LD_LIBRARY_PATH=$ORACLE_HOME/lib:/usr/lib \
     CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
+    
+# Ratings Change create these to handle hardcoded tablespace locations in dump
+RUN mkdir -p /u01/app/oracle/product/11.2.0/xe/dbs && \
+	chmod 777 /u01/app/oracle/product/11.2.0/xe/dbs && \
+	mkdir -p /u01/app/oracle/oradata/XE && \
+	chmod 777 /u01/app/oracle/oradata/XE
 
 # Copy binaries
 # -------------
